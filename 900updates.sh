@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#source /usr/local/rvm/scripts/rvm
+
 
 #1 Transferring latest code
 
@@ -8,7 +10,6 @@
 # not on your local computer!
 #1.2 Pull latest code from Git
 
-source /usr/local/rvm/scripts/rvm
 
 
 #Go to your application's code directory on the server, then use Git to pull the latest code:
@@ -24,8 +25,8 @@ git pull
 # interpreter that you used when you first deployed your app.
 
 #For example, if you are using RVM to manage Ruby interpreters, run the following (assuming your app is supposed to use Ruby 2.2.1).
-
-rvm use ruby-2.2.1
+source /usr/local/rvm/scripts/rvm
+rvm use ruby
 
 
 #2.2 Install app dependencies
@@ -33,7 +34,6 @@ rvm use ruby-2.2.1
 #Your application's gem dependencies may have changed, so we should install any updated gem dependencies. Run:
 
 bundle install --deployment --without development test
-
 
 #2.3 Compile Rails assets and run database migrations
 
