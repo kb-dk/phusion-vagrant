@@ -52,7 +52,7 @@ secret=$(bundle exec rake secret)
 #...
 #This command will output a secret key. Copy that value to your clipboard. Next, open config/secrets.yml:
 
-sed -i "s/<%=ENV[\"SECRET_KEY_BASE\"]%>/$secret/g" config/secrets.yml
+sed -i 's/<%=\s*ENV\["SECRET_KEY_BASE"\]\s*%>/'$secret'/g' config/secrets.yml
 #If the file already exists, look for this:
 
 #production:
